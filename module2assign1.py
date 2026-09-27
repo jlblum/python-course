@@ -59,9 +59,10 @@ def main():
     print(str(compareStrings(stringsList[1],stringsList[1])) + "\n")
 
     print(stringsList[2] + " is equal to "+ stringsList[3] + ":")
-    print(compareStrings(stringsList[2],stringsList[3]))
-    
+    print(str(compareStrings(stringsList[2],stringsList[3]))+ "\n")
 
+    print("Apple is < " + stringsList[5] + " :")
+    print("Apple" < stringsList[5])
 if __name__ == "__main__":
     main()
 
