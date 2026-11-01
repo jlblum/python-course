@@ -55,18 +55,18 @@ class Adventurer(Player):
     """Adventurer class inherits from the Player class"""
     def __init__(self, name: str, inventory: list = None, cell_size=80):
         super().__init__(name)
-        self.inventory = inventory if inventory is not None else []
+        self._inventory = inventory if inventory is not None else []
         self.damage = 20  # Adventurer damage
         self.image = self.load_image("Module6assign1BLUM/assets/adventurer.jpg", cell_size, "dodgerblue")
 
     def has_item(self, item_name: str) -> bool:
         """getter to check if the player has an item in inventory"""
-        return any(item_name.lower() in str(i).lower() for i in self.inventory)
+        return any(item_name.lower() in str(i).lower() for i in self._inventory)
 
     def add_item(self, item):
         """setter to add an item to the player inventory"""
-        if item and item not in self.inventory:
-            self.inventory.append(item)
+        if item and item not in self._inventory:
+            self._inventory.append(item)
 
 
 class Gorn(Opponent):

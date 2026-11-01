@@ -124,7 +124,7 @@ class gameGui:
 
     def update_inventory(self):
         """setter to add an object to player inventory"""
-        items = self.logic.player.inventory
+        items = self.logic.player._inventory
         if items:
             text = "Inventory: " + ", ".join(str(i) for i in items)
         else:
