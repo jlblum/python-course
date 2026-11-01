@@ -68,6 +68,15 @@ class Adventurer(Player):
         if item and item not in self._inventory:
             self._inventory.append(item)
 
+    def __str__(self):
+        """Using str to present a user friendly output of the Adventurer(player?) object """
+        if not self._inventory:
+            items_list = "Empty"
+        else:
+            # Joins all items into a clean, comma-separated list
+            items_list = ", ".join(str(item) for item in self._inventory)
+        #In this context, I only need the Inventory, so let's only return that much.
+        return f"Inventory: {items_list}"
 
 class Gorn(Opponent):
     """Gorn class inherits from Oppenent."""

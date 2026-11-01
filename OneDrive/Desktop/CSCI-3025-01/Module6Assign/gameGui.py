@@ -126,7 +126,11 @@ class gameGui:
         """setter to add an object to player inventory"""
         items = self.logic.player._inventory
         if items:
-            text = "Inventory: " + ", ".join(str(i) for i in items)
+            text = self.logic.player
+            #text = "Inventory: " + ", ".join(str(i) for i in items)
+            #debugging for str print
+            #print(self.logic.player)
+
         else:
             text = "Inventory: (empty)"
         self.inventory_label.config(text=text)
