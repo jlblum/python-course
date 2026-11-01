@@ -268,14 +268,14 @@ class gameGui:
                 return True
             return False
 
-        def enemy_strike():
-            """Enemy attack"""
-            # 30% likelihood that the enemy will miss. 
-            if random.random() < 0.30:
-                return 0, f"{enemy.name} misses!"
-
-            dmg = enemy.damage
-            return dmg, f"The {enemy.name} hits you for {dmg} damage!"
+       # def enemy_strike():
+       #     """Enemy attack"""
+       #     # 30% likelihood that the enemy will miss. 
+       #     if random.random() < 0.30:
+       #         return 0, f"{enemy.name} misses!"#
+       #
+       #     dmg = enemy.damage
+       #     return dmg, f"The {enemy.name} hits you for {dmg} damage!"
 
         def on_attack():
             #Player attacks first
@@ -287,10 +287,10 @@ class gameGui:
                 return
 
             #Enemy attacks Second.
-            dmg, enemy_msg = enemy_strike()
-            if dmg > 0:
-                player.health -= dmg
-                player.health = max(player.health, 0)
+            dmg, enemy_msg = enemy.enemy_attack(player)
+            #if dmg > 0:
+            #    player.health -= dmg
+            #    player.health = max(player.health, 0)
             msg += f"\n{enemy_msg}"
 
             refresh_hp()

@@ -1,6 +1,6 @@
 from PIL import Image, ImageTk
 import os
-
+import random
 
 class Player:
     """Player is the base class others will inherit from."""
@@ -17,6 +17,17 @@ class Player:
         target.health = max(target.health, 0)
        # print(f"{self.name} dealt {self.damage} damage to {target.name}")
        # Leave above for console debugging purposes.
+
+    def enemy_attack(self,target):
+        """Enemy attack"""
+        # 30% likelihood that the enemy will miss. 
+        #print("Calling the player class enemy attack method")
+        if random.random() < 0.30:
+            return 0, f"{self.name} misses!"#
+           
+        target.health -= self.damage
+        target.health = max(target.health, 0)
+        return self.damage, f"The {self.name} hits you for {self.damage} damage!"
 
     def load_image(self, image_path, cell_size=80, fallback_color="crimson"):
         """Load images, with a fallback if can't load. This is here until I figure out how to call it from somewhere else."""
